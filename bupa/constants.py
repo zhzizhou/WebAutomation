@@ -1,0 +1,1 @@
+BASE_URL = "https://bmvs.onlineappointmentscheduling.net.au/oasis/Location.aspx"
