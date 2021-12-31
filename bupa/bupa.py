@@ -1,6 +1,7 @@
 from selenium import webdriver
 import bupa.constants as const
 import os
+from selenium.webdriver.common.by import By
 
 class Bupa(webdriver.Chrome):
     def __init__(self, driver_path="C:\SeleniumDrivers", teardown=False):
@@ -28,3 +29,17 @@ class Bupa(webdriver.Chrome):
         )
         start_button.click()
         print("The button is clicked")
+
+    def newIndividual(self):
+        new_individual = self.find_element_by_id("ContentPlaceHolder1_btnInd")
+        new_individual.click()
+        print("new individual booking looking up....")
+
+    def select_centre(self,location=None):
+        print(f"selecting {location} bupa centre")
+        selected_location = self.find_element()
+        selected_location.click()
+        print(f"Clicked the {location} centre")
+
+
+

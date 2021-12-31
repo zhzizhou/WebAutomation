@@ -1,12 +1,21 @@
+import time
+
 from bupa.bupa import Bupa
 
 
 
 def main():
     with Bupa() as bot:
+        print("starting the selenium driver...")
+        time.sleep(1)
+        print("initialising the automation...")
+        time.sleep(1)
         bot.land_first_page()
         bot.startFresh()
+        bot.newIndividual()
+        bot.select_centre()
         print("Exiting....")
+        time.sleep(100)
 
 
 
