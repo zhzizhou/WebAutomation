@@ -3,6 +3,9 @@ import bupa.constants as const
 import os
 from selenium.webdriver.common.by import By
 
+
+
+
 class Bupa(webdriver.Chrome):
     def __init__(self, driver_path="C:\SeleniumDrivers", teardown=False):
         self.driver_path = driver_path
@@ -37,9 +40,30 @@ class Bupa(webdriver.Chrome):
 
     def select_centre(self,location=None):
         print(f"selecting {location} bupa centre")
-        selected_location = self.find_element()
+        selected_location = self.find_element(By.CLASS_NAME,"tdloc_checkbox")
         selected_location.click()
         print(f"Clicked the {location} centre")
+        # handle the javascript pop up box
+        #self.popupHandle()
+
+        try:
+            submit_button = self.find_element(
+                By.ID,
+                "ContentPlaceHolder1_btnCont"
+            )
+        except:
+            alert = self.switch_to_alert()
+            alert.accpet()
+            print("alert dismissed")
+            submit_button = self.find_element(
+                By.ID,
+                "ContentPlaceHolder1_btnCont"
+            )
+        submit_button.click()
+        print("Location request submitted ....")
+
+
+
 
 
 
