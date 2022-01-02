@@ -1,7 +1,7 @@
 import time
 
 from bupa.bupa import Bupa
-
+# now i am completing the other half of the project on macintosh
 
 
 def main():
