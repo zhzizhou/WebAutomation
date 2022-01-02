@@ -1,0 +1,2 @@
+student visa: Medical Examination(501), Chest X-Ray(502)
+migration visa: Medical Examination(501), Chest X-Ray(502), Serum Creatinine(704)
