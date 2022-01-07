@@ -58,20 +58,35 @@ class Bupa(webdriver.Chrome):
         submit_button.click()
         print("Location request submitted ....")
 
+    # working on selection assessment option for the selected bupa centre
     def select_assessments(self,visa="student"):
         # first need an input validation check
-        if (visa == "student"):
-            # need only 501, 502
-            print("selecting assessment for general student visa .....")
-            Med = self.find_element()
+        # need only 501, 502
+        print("selecting assessment .....")
+        # button for 501
+        Med501 = self.find_element(By.ID,"chkClass1_489")
+        Med501.click()
+        # button for 502
+        Med502  = self.find_element(By.ID,"chkClass1_492")
+        Med502.click()
 
-        else:
-            # need all three
-            print("selecting assessment for general migration visa .....")
+
+
+        if (visa != "student"):
+            # need all three, adding the 704
+            Med704 = self.find_element(By.ID, "chkClass1_572")
+            Med704.click()
+
+
 
         # submit the form
+        Next_Button = self.find_element(By.ID, "ContentPlaceHolder1_btnCont")
+        Next_Button.click()
 
 
-
+    def earliest_time(self):
+        TimeSlot = self.find_element(By.ID, "ContentPlaceHolder1_SelectTime1_divSearchResults")
+        TimeString = TimeSlot.text
+        print(TimeString)
 
 
